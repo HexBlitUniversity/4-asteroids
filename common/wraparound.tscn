@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clo4thn1tmoai"]
+
+[ext_resource type="Script" path="res://common/wraparound.gd" id="1_duon6"]
+
+[node name="Wraparound" type="Node"]
+script = ExtResource("1_duon6")

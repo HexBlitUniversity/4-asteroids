@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfxluhws00qww"]
+
+[ext_resource type="Texture2D" uid="uid://bnhaak4uax3jm" path="res://assets/Meteors/meteorGrey_big1.png" id="1_5f8mo"]
+[ext_resource type="PackedScene" uid="uid://clo4thn1tmoai" path="res://common/wraparound.tscn" id="2_boyr3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_85024"]
+radius = 33.3525
+height = 90.5537
+
+[node name="asteroid" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5f8mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+rotation = 1.45843
+shape = SubResource("CapsuleShape2D_85024")
+
+[node name="Wraparound" parent="." instance=ExtResource("2_boyr3")]

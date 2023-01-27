@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://julqpxrerg05"]
+
+[ext_resource type="Texture2D" uid="uid://tr8dg34yc8m0" path="res://assets/playerShip1_blue.png" id="1_2s1an"]
+[ext_resource type="Script" path="res://player.gd" id="1_tr480"]
+[ext_resource type="PackedScene" uid="uid://clo4thn1tmoai" path="res://common/wraparound.tscn" id="2_umuxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kod6j"]
+size = Vector2(107, 20)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_tr480")
+
+[node name="Wraparound" parent="." instance=ExtResource("2_umuxq")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2s1an")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 9)
+shape = SubResource("RectangleShape2D_kod6j")
