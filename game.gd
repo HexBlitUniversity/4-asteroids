@@ -5,3 +5,7 @@ func _ready():
 
 func call_wrap_around():
 	get_tree().call_group("wrap_around", "recalculate_wrap_area")
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.

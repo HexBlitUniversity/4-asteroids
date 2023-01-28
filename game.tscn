@@ -1,14 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://d04cggva1mie0"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8ytl6"]
-[ext_resource type="PackedScene" uid="uid://cfxluhws00qww" path="res://asteroid.tscn" id="1_tn7aa"]
 [ext_resource type="PackedScene" uid="uid://julqpxrerg05" path="res://player.tscn" id="2_ima7j"]
+[ext_resource type="Script" path="res://AsteroidSpawner.gd" id="4_6giai"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_8ytl6")
 
-[node name="asteroid" parent="." instance=ExtResource("1_tn7aa")]
-position = Vector2(687, 349)
-
 [node name="player" parent="." instance=ExtResource("2_ima7j")]
 position = Vector2(363, 488)
+
+[node name="AsteroidSpawner" type="Node" parent="."]
+script = ExtResource("4_6giai")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="AsteroidSpawner" method="_on_timer_timeout"]

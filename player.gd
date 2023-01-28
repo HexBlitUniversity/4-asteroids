@@ -19,14 +19,19 @@ func _unhandled_input(event):
 			ship_dir = inputs[dir]
 		if event.is_action_released(dir):
 			ship_dir = Vector2.ZERO
+	
+	if event.is_action_pressed("shoot"):
+		$LaserWeapon.shoot()
 		
 
 func _physics_process(delta):
  
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = ship_dir * SPEED	
 	velocity = direction * SPEED * delta
 	
-
 	move_and_slide()
+
+
+func _on_hitbox_body_entered(body):
+	if !self.is_queued_for_deletion() && body.is_in_group("asteroids"):
+		queue_free()
